@@ -1,0 +1,130 @@
+$padding: 2em;
+$radius: 1em;
+$margin: 0 5em;
+$font: 20px;
+$transition: 0.25s ease-in;
+$primaryclr: #c3cfe2;
+$secondaryclr: #fff;
+$thirdclr: #686de0;
+
+body {
+  background: $primaryclr;
+  font-family: Arial;
+  font-size: $font;
+  line-height: 150%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.card {
+  position: relative;
+  margin: auto;
+  border-radius: $radius;
+  width: 300px;
+  box-shadow: 17px 18px 19px -8px rgba(50, 77, 124, 0.45);
+  transition: $transition;
+
+  &__txt {
+    position: relative;
+    background: $secondaryclr;
+    height: 12em;
+    padding: $padding;
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+
+    & img {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      display: block;
+      margin: 1em 3em;
+      border-radius: 50%;
+      border: solid $secondaryclr 5px;
+    }
+
+    &__img {
+      position: absolute;
+      top: 240px;
+    }
+  }
+
+  &__footer {
+    font-size: 16px;
+    background: $thirdclr;
+    color: $secondaryclr;
+    padding: $padding;
+    padding-top: 4.5em;
+    text-align: center;
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    letter-spacing: 1px;
+
+    &::first-line {
+      text-transform: uppercase;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    background: rgb(21, 23, 26);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: $radius;
+    transition: 1s;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover .card__overlay {
+    opacity: 1;
+  }
+
+  &:hover {
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.28);
+  }
+
+  &--button {
+    background: $secondaryclr;
+    border: solid 2px $secondaryclr;
+    color: #000000;
+    width: 150px;
+    font-size: $font;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    transition: $transition;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 2em;
+  justify-content: center;
+  padding-top: 10em;
+  padding-bottom: 4em;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin: $margin;
+    grid-template-columns: 50% 50%;
+    padding-top: 12em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    margin: 0 2em;
+    grid-template-columns: 30% 30% 30%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    margin: 0 14em;
+  }
+}
